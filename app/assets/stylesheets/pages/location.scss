@@ -364,35 +364,39 @@
 }
 
 .impact-content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
 
-  .impact-metric {
-    padding: 0 50px;
+    .impact-metric {
+      padding: 0 50px;
 
-    .metric-value {
-      font-size: 7.5em;
-      font-weight: bold;
-    }
+      *{
+        margin: 0 auto;
+      }
 
-    .metric-unit, .subtext {
-      display: table;
-      margin: 0 auto;
-      position: relative;
-      top: -40px;
-    }
+      .metric-value {
+        font-size: 7.5em;
+        font-weight: bold;
+      }
 
-    .metric-unit {
-      font-weight: bold;
-      color: $green;
-      font-size: 1.9em;
-    }
+      .metric-unit, .subtext {
+        display: table;
+        position: relative;
+        top: -40px;
+      }
 
-    .subtext {
-      color: $black-60;
+      .metric-unit {
+        font-weight: bold;
+        color: $green;
+        font-size: 1.9em;
+      }
+
+      .subtext {
+        color: $black-60;
+      }
     }
   }
-
 }

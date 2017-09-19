@@ -45,6 +45,29 @@
      return renderData
    }
 
+   _renderSocialData = () => {
+     let metricTypes = ["pounds", "meals"]
+     let renderData = []
+     let pounds = this._setTotalPounds()
+
+     metricTypes.forEach((metricType) => {
+       renderData.push(this._showImpactData(pounds, metricType))
+     })
+     return renderData
+   }
+
+   _renderEnvData = () => {
+     let metricTypes = ["water", "CO2"]
+     let renderData = []
+     let pounds = this._setTotalPounds()
+
+     metricTypes.forEach((metricType) => {
+       renderData.push(this._showImpactData(pounds, metricType))
+     })
+     return renderData
+
+   }
+
   //  let renderData = _renderAllData()
 
   //  Calculation Functions
@@ -81,7 +104,9 @@
 
    render() {
        let empty;
-       let renderData = this._renderAllData()
+      //  let renderData = this._renderAllData()
+      let socialData = this._renderSocialData();
+      let envData = this._renderEnvData();
        if (this.state.tasks.length == 0) {
          empty = (
            <div className="empty-table-container">
@@ -100,7 +125,12 @@
          <div className="impact-content">
            {empty}
            {/* <ImpactMetric metricValue="42" metricUnit="lbs" subText="of food donated."/> */}
-           {renderData}
+           <div className="social-data flex-container">
+             {socialData}
+           </div>
+           <div className="env-data flex-container">
+             {envData}
+           </div>
          </div>
        );
      }

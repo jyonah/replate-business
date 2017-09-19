@@ -30,7 +30,7 @@
      } else if (metricType == "CO2") {
        return <ImpactMetric metricValue={this._calculateCO2(pounds)} metricUnit="pounds" subText="of C02 diverted"/>
      } else if (metricType == "pounds") {
-       return <ImpactMetric metricValue={pounds} metricUnit="pounds" subText="of food donated"/>
+       return <ImpactMetric metricValue={this._numAbbrev(pounds)} metricUnit="pounds" subText="of food donated"/>
      }
    }
 
@@ -73,15 +73,47 @@
   //  Calculation Functions
 
   _calculateMeals = (pounds) => {
-    return Math.floor(pounds / 1.2)
+    return this._numAbbrev(Math.floor(pounds / 1.2))
   }
   _calculateWater = (pounds) => {
-    return Math.floor(pounds * 277)
+    return this._numAbbrev(Math.floor(pounds * 277))
   }
   _calculateCO2 = (pounds) => {
-    return Math.floor(pounds * 13.77)
+    return this._numAbbrev(Math.floor(pounds * 13.77))
   }
 
+  // number abbreviation function
+  _numAbbrev = (num) => {
+
+    const suffix = {
+      1: "k",
+      2: "m",
+      3: "b",
+      4: "t"
+    }
+    num = num.toString()
+    if (num.length <= 4){
+      return num;
+    }
+    // 1,245 --> 1.2k
+    // 45,978 --> 45k
+    // 654,650 --> 654k
+    // 6,229,074 --> 6.2m
+    let sufVal = 0
+    while(num.length > 4){
+      num = num.substring(0, num.length-3)
+      sufVal += 1
+    }
+
+    if (num.length == 4) {
+      num = num.substring(0,2)
+      num = num / 10
+      num = num.toString()
+      sufVal += 1
+    }
+
+    return num.concat(suffix[sufVal])
+  }
 
 
    componentWillReceiveProps(nextProps) {

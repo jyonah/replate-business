@@ -24,13 +24,13 @@
 
    _showImpactData = (pounds, metricType) => {
      if (metricType == "meals") {
-       return <ImpactMetric metricValue={this._calculateMeals(pounds)} metricUnit="meals" subText="fed to the hungry."/>
+       return <ImpactMetric metricValue={this._calculateMeals(pounds)} metricUnit="meals" subText="fed to the hungry"/>
      } else if (metricType == "water") {
-       return <ImpactMetric metricValue={this._calculateWater(pounds)} metricUnit="gallons" subText="of water saved."/>
+       return <ImpactMetric metricValue={this._calculateWater(pounds)} metricUnit="gallons" subText="of water saved"/>
      } else if (metricType == "CO2") {
-       return <ImpactMetric metricValue={this._calculateCO2(pounds)} metricUnit="pounds" subText="of C02 not in the atmosphere."/>
+       return <ImpactMetric metricValue={this._calculateCO2(pounds)} metricUnit="pounds" subText="of C02 diverted"/>
      } else if (metricType == "pounds") {
-       return <ImpactMetric metricValue={pounds} metricUnit="pounds" subText="of food donated."/>
+       return <ImpactMetric metricValue={pounds} metricUnit="pounds" subText="of food donated"/>
      }
    }
 

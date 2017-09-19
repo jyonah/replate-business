@@ -362,3 +362,37 @@
     max-width: 500px;
   }
 }
+
+.impact-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+
+  .impact-metric {
+    padding: 0 50px;
+
+    .metric-value {
+      font-size: 7.5em;
+      font-weight: bold;
+    }
+
+    .metric-unit, .subtext {
+      display: table;
+      margin: 0 auto;
+      position: relative;
+      top: -40px;
+    }
+
+    .metric-unit {
+      font-weight: bold;
+      color: $green;
+      font-size: 1.9em;
+    }
+
+    .subtext {
+      color: $black-60;
+    }
+  }
+
+}
